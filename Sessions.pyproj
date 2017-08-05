@@ -4,8 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>e010cec0-d65e-475e-8f3c-5f5f8e80c6ac</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Session3\MNIST.py</StartupFile>
-    <SearchPath>libs</SearchPath>
+    <StartupFile>MNIST\MNIST_simple.py</StartupFile>
+    <SearchPath>libs;MNIST</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Sessions</Name>
@@ -29,6 +29,13 @@
     <Compile Include="libs\utils.py" />
     <Compile Include="libs\vgg16.py" />
     <Compile Include="libs\vgg16bn.py" />
+    <Compile Include="MNIST\MNIST_final.py" />
+    <Compile Include="MNIST\MNIST_autmentation.py" />
+    <Compile Include="MNIST\MNIST_batchnormal.py" />
+    <Compile Include="MNIST\MNIST_dropout.py" />
+    <Compile Include="MNIST\MNIST_shared.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Session2\Session2_2.py">
       <SubType>Code</SubType>
     </Compile>
@@ -51,7 +58,7 @@
     <Compile Include="Session3\LinearModel.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Session3\MNIST.py">
+    <Compile Include="MNIST\MNIST_simple.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Session3\VGGEnsembling.py">
@@ -82,6 +89,7 @@
   <ItemGroup>
     <Folder Include="libs\" />
     <Folder Include="libs\" />
+    <Folder Include="MNIST\" />
     <Folder Include="Session3\" />
     <Folder Include="Session2\" />
     <Folder Include="Session1\" />
