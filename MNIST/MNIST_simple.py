@@ -45,26 +45,30 @@ train_batches = imageGen.flow(X_train, Y_train, batch_size=batch_size)
 test_batches = imageGen.flow(X_test,  Y_test,  batch_size=batch_size, shuffle=False)
 
 
-model = get_model()
-fit_it(model, train_batches, test_batches, epochs=3, lr=1)
-
-model = get_model()
-fit_it(model, train_batches, test_batches, epochs=3, lr=0.1)
 
 model = get_model()
 fit_it(model, train_batches, test_batches, epochs=3, lr=0.001)
+fit_it(model, train_batches, test_batches, epochs=3, lr=0.0001)
+fit_it(model, train_batches, test_batches, epochs=3, lr=0.00001)
 
-fit_it(model, train_batches, test_batches, epochs=4, lr=0.1)
-fit_it(model, train_batches, test_batches, epochs=10, lr=0.01)
-fit_it(model, train_batches, test_batches, epochs=18, lr=0.001)
+# Summary
+# After 3 epochs @ lr=0.001. Value did not get any better after 3 epochs.  
+#525/524 [==============================] - 15s - loss: 0.0270 - acc: 0.9909 - val_loss: 0.0584 - val_acc: 0.9839
+#
+# After lr = 0.0001 and 0.00001 each 3 epochs: Massive overfitting. No better validation accuracy.
+#525/524 [==============================] - 15s - loss: 0.0101 - acc: 0.9966 - val_loss: 0.0596 - val_acc: 0.9879
+#
+# Note:
+# Learning rate 0.01 was too large => Only 10% after 3 epochs. Did not converge to a better value.
+#
+#
+#
 
 
 # Predict and submit
 submissionLabels = model.predict_classes(X_submission, batch_size)
 write_submission_file(submissionLabels)
 
-# After 3 epochs @ lr=0.001  0.01 too large => 10% after 3 epochs
-#525/524 [==============================] - 15s - loss: 0.0270 - acc: 0.9909 - val_loss: 0.0584 - val_acc: 0.9839
 
 #https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model
 model.save(os.getcwd() + '\\Session3\\MNISTKaggle\\model' + curTime + '2.h5')
